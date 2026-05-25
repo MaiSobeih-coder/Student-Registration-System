@@ -2,6 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+//Mai ismail Sobeih 
+//220222615
 package k;
 import java.io.File;
 import java.io.FileInputStream;
@@ -49,7 +51,7 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
     String[] pl = {"Java", "Python", "JS", "PHP", "Scala"};
     Button save;
     Button arrow;
-    Button arrowBack;  // زر جديد لنقل اللغات من اليمين إلى اليسار
+    Button arrowBack; 
     CheckBox c1, c2, c3;
     RadioButton r1, r2, r3;
     ComboBox<Integer> cb;
@@ -70,9 +72,9 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
     @Override
     public void start(Stage stage) throws ClassNotFoundException  {
 
-        // =========================
+        
         // Student controls
-        // =========================
+      
         id = new ComboBox<>();
         id.setPromptText("Select ID");
         id.setPrefWidth(200);
@@ -106,9 +108,9 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
         message = new Label("");
         message.setStyle("-fx-text-fill: red;");
         
-        // =========================
+       
         // Design controls
-        // =========================
+       
         c1 = new CheckBox("Normal");
         c2 = new CheckBox("Bold");
         c3 = new CheckBox("Italic");
@@ -130,15 +132,15 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
         cp = new ColorPicker();
         cp.setValue(Color.WHITE);
 
-        // =========================
+       
         // Right side list
-        // =========================
+       
         studentList = new ListView<>();
         studentList.setPrefSize(250, 350);
         
-        // =========================
+       
         // Left panel
-        // =========================
+       
         Label designTitle = new Label("Design Tools");
 
         VBox leftBox = new VBox(12);
@@ -158,9 +160,9 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
                 cp
         );
 
-        // =========================
+       
         // Center panel
-        // =========================
+       
         title = new Label("Student Registration System");
 
         HBox genderBox = new HBox(15, male, female);
@@ -201,9 +203,9 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
         centerBox.setAlignment(Pos.TOP_CENTER);
         centerBox.getChildren().add(formGrid);
 
-        // =========================
+     
         // Right panel
-        // =========================
+       
         Label savedTitle = new Label("Saved Students");
 
         VBox rightBox = new VBox(15);
@@ -212,18 +214,18 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
         rightBox.setPrefWidth(280);
         rightBox.getChildren().addAll(savedTitle, studentList);
 
-        // =========================
+       
         // Main layout
-        // =========================
+      
         root = new BorderPane();
         root.setPadding(new Insets(20));
         root.setLeft(leftBox);
         root.setCenter(centerBox);
         root.setRight(rightBox);
         
-        // =========================
+     
         // ids for CSS
-        // =========================
+       
         leftBox.setId("left-panel");
         centerBox.setId("center-panel");
         rightBox.setId("right-panel");
@@ -233,9 +235,9 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
         title.setId("main-title");
         savedTitle.setId("section-title");
         
-        // =========================
+     
         // Registering Events
-        // =========================
+       
         c2.setOnAction(this);
         c3.setOnAction(this);
         r1.setOnAction(this);
@@ -247,9 +249,9 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
         arrowBack.setOnAction(this);
         save.setOnAction(this);
         
-        // =========================
+      
         // ID ComboBox Event (عرض معلومات الطالب عند اختيار ID)
-        // =========================
+       
         id.setOnAction(e -> {
             String selectedId = id.getValue();
             if (selectedId != null) {
@@ -257,14 +259,14 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
             }
         });
         
-        // =========================
+       
         // Read From File
-        // =========================
+       
         readFromFile();
         
-        // =========================
+       
         // Scene
-        // =========================
+       
         Scene scene = new Scene(root, 1000, 500);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
@@ -278,9 +280,9 @@ public class Week4 extends Application implements EventHandler<ActionEvent>{
         stage.setAlwaysOnTop(true);
     }
 
-    // =========================
+    
     // عرض معلومات الطالب عند اختيار ID
-    // =========================
+   
     private void displayStudentInfo(String studentId) {
         for (Student s : students) {
             if (s.getId().equals(studentId)) {
